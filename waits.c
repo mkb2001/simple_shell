@@ -1,10 +1,11 @@
-#include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
 int main(void)
 {
-    char input[1024];
-    char len = 0;
+    char *input = NULLa;
+    size_t len = 0;
     printf("$ ");
-    ssize_t res = getline(&input, &len, stdin);
+    size_t res = getline(&input, &len, stdin);
     
     if (res != -1)
     {
