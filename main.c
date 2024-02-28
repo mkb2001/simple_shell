@@ -8,7 +8,7 @@
 #define MAX_INPUT_SIZE 1024
 
 int main() {
-    char command[MAX_INPUT_SIZE];
+ char command[MAX_INPUT_SIZE];
 
     while (1) {
         display_prompt();
@@ -33,5 +33,6 @@ int main() {
         execute_command(command);
     }
 
+    return 0;
     return 0;
 }
