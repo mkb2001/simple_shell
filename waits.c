@@ -2,7 +2,7 @@
 #include <stdlib.h>
 int main(void)
 {
-    char *input = NULLa;
+    char *input = NULL;
     size_t len = 0;
     printf("$ ");
     size_t res = getline(&input, &len, stdin);

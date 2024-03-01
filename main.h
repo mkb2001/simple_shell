@@ -10,6 +10,6 @@
 
 void display_prompt();
 void execute_command(char *command);
-
+char *_my_prompt();
 #define MAX_SIZE 1024
 #endif
