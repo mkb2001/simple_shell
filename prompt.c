@@ -16,6 +16,11 @@ char *_my_prompt()
     {
         write(STDOUT_FILENO, "$ ", 2);
     }
+    if (_my_getline(&command, &n, stdin) == -1)
+    {
+        free(command);
+        exit(EXIT_SUCCESS);
+    }
     command[strcspn(command, "\n")] = '\0';
     return (command);
 
