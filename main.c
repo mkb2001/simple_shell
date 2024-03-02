@@ -5,7 +5,6 @@
  * @av: the List of args
 */
 
-#define MAX_INPUT_SIZE 1024
 
 int main(int ac, char **av, char **env) {
  	ac = 0;
@@ -14,6 +13,7 @@ int main(int ac, char **av, char **env) {
 	ac++;
 	signal(SIGINT, my_signal_handler);
 	_shell_loop(env);
+    // _my_printenv(env);
 
 	return (0);
 }

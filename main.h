@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
+
 void process(char *reg_command, struct stat st, char **ptr);
 void _shell_loop(char **env);
 char **_tokens(char **env);
