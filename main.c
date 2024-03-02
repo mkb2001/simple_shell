@@ -13,7 +13,6 @@ int main(int ac, char **av, char **env) {
 	ac++;
 	signal(SIGINT, my_signal_handler);
 	_shell_loop(env);
-    // _my_printenv(env);
 
 	return (137);
 }

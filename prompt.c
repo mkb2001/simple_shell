@@ -20,10 +20,10 @@ char *_my_prompt(char **env)
 		free(command);
 		exit(EXIT_SUCCESS);
 	}
-	command[_strcspn(command, "\n")] = '\0';
-	if (_strcmp(command, "env") == 0 || _strcmp(command, "printenv") == 0)
+	command[strcspn(command, "\n")] = '\0';
+	if (strcmp(command, "env") == 0 || strcmp(command, "printenv") == 0)
 		_my_printenv(env);
-	if (_strcmp(command, "exit") == 0)
+	if (strcmp(command, "exit") == 0)
 		exit(EXIT_SUCCESS);
 	return (command);
 
