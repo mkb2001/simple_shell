@@ -13,7 +13,6 @@ int main() {
 
     while (1) {
         command = _my_prompt();
-        // ssize_t n = _my_getline(&command, &n, stdin);
         printf("%s", command);
         return (0);
     }

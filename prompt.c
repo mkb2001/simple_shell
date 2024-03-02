@@ -22,6 +22,17 @@ char *_my_prompt()
         exit(EXIT_SUCCESS);
     }
     command[strcspn(command, "\n")] = '\0';
+    if (strcmp(command, "env") == 0 || strcmp(command, "printenv") == 0)
+    {
+        my_printenv();
+    }
+    if (strcmp(command, "exit") == 0)
+    {
+        exit(EXIT_SUCCESS);
+    }
+    
     return (command);
 
 }
+
+

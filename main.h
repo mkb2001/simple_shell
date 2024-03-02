@@ -7,10 +7,11 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
 void display_prompt();
 void execute_command(char *command);
 char *_my_prompt();
+void my_signal_handler(int sig);
+void printenv(char **env);
 ssize_t _my_getline (char **command, size_t *number, FILE *stream);
 #define MAX_SIZE 1024
 #endif
