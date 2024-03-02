@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-My Simple shell in C
-=======
 Write a UNIX command line interpreter.
 
 Usage: simple_shell
@@ -21,4 +18,3 @@ handle special characters : ", ', `, \, *, &, #
 be able to move the cursor
 handle commands with arguments
 execve will be the core part of your Shell, don’t forget to pass the environ to it…
->>>>>>> 0317de2 (Fix bug in login functionality)

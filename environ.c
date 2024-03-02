@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-void printenv(char **env)
+void _my_printenv(char **env)
 {
 	int i = 0;
 

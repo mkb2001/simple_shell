@@ -4,7 +4,7 @@
  * 
 */
 
-char *_my_prompt()
+char *_my_prompt(char **env)
 {
     char *command = NULL;
     size_t n = 0;
@@ -24,7 +24,7 @@ char *_my_prompt()
     command[strcspn(command, "\n")] = '\0';
     if (strcmp(command, "env") == 0 || strcmp(command, "printenv") == 0)
     {
-        my_printenv();
+        _my_printenv(env);
     }
     if (strcmp(command, "exit") == 0)
     {

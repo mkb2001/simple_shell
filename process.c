@@ -1,28 +1,33 @@
+#include "main.h"
+
 /**
- * A process is an instance of an executing 
- * program that has a unique process ID.
- * 
- * We use getpid to get the process id. 
- * it returns an id of the calling routine 
- * 
- * The id gotten will be saved in a variable of type pid_t
- * 
- * the getppid will return a parent id of the process
- * that created that process. ie the process that called fork 
- * that created the process.
- * 
- * 
- * 
-*/
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-int main(void)
+ * process - checks if argument is directory and replaces the shell process
+ * with a program using execve
+ * @ptr: array of pointers to strings holding command and arguments from
+ * getline
+ * @st: checks the PATH variable
+ **/
+
+void process(char *reg_command, struct stat st, char **ptr)
 {
-    pid_t my_pid;
-    pid_t my_ppid;
-    my_pid = getpid();
-    my_ppid = getppid();
-    printf("%u\n", my_ppid);
-    return (0);
+	if (S_ISDIR(st.st_mode))
+	{
+		if (chdir(ptr[0]) == -1)
+		{
+			perror("./hsh");
+			free(reg_command);
+			free(ptr);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		if (execve(reg_command, ptr, NULL) == -1)
+		{
+			perror("./hsh");
+			free(reg_command);
+			free(ptr);
+			exit(EXIT_FAILURE);
+		}
+	}
 }

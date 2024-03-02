@@ -7,13 +7,13 @@
 
 #define MAX_INPUT_SIZE 1024
 
-int main() {
- char *command = NULL;
- size_t n = 0;
+int main(int ac, char **av, char **env) {
+ 	ac = 0;
+	if (av != NULL)
+		av++;
+	ac++;
+	signal(SIGINT, my_signal_handler);
+	_shell_loop(env);
 
-    while (1) {
-        command = _my_prompt();
-        printf("%s", command);
-        return (0);
-    }
+	return (0);
 }
