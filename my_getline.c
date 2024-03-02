@@ -2,50 +2,48 @@
 
 ssize_t _my_getline (char **command, size_t *number, FILE *stream)
 {
-    ssize_t i = 0; /* the index */
+            ssize_t i = 0;
+        int size = 80;
+        char *buffer;
+        int c;
 
-    int size = 80; /* the max number of characters */
-    char *buffer;
-    int c;
-
-    if (number == NULL || stream == NULL)
-    {
-
-    }
-
-    buffer = malloc(sizeof(char) * size);
-
-    if ( buffer == NULL)
-    {
-        perror("Sorry");
-        exit(98);
-    }
-    c= getchar();
-    while ( c != EOF && c != '\n')
-    {
-        buffer[i] = c;
-        i++;
-        if (i >= size)
+	if (number == NULL || stream == NULL)
+	{
+		;
+	}
+        buffer = (char *)malloc(sizeof(char) * size);
+        if (buffer == NULL)
         {
-            size += size;
-            buffer = realloc(buffer, size);
-            if (buffer == NULL)
-            {
-                perror("realloc");
-                return(-1);
-            }
-
+                perror("malloc");
+                return (-1);
         }
-        c= getchar();
-    }
-    buffer[i] = '\0';
-    *command = buffer;
 
-    if (*command == NULL)
-    {
-        perror("Empty buffer");
-        free(buffer);
-        return (-1);
-    }
-    return (i);
+        c = getchar();
+        while (c != EOF && c != '\n')
+        {
+                buffer[i] = c;
+                i++;
+                if (i >= size)
+                {
+                        size += size;
+                        buffer = realloc(buffer, size);
+                        if (buffer == NULL)
+                        {
+                                perror("./hsh");
+                                return(-1);
+                        }
+                }
+                c = getchar();
+        }
+        buffer[i] = '\0';
+
+        *command = buffer;
+        if(*command == NULL)
+        {
+                perror("./hsh");
+                free(buffer);
+                return (-1);
+        }
+
+        return (i);
 }

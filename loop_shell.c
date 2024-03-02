@@ -2,7 +2,7 @@
 
 void _shell_loop(char **env)
 {
-	pid_t my_pid;
+		pid_t my_pid;
 	int wstatus;
 	char *reg_command = NULL;
 	struct stat st;
@@ -20,7 +20,7 @@ void _shell_loop(char **env)
 		{
 			free(reg_command);
 			_free(ptr);
-			exit(EXIT_FAILURE);
+			_shell_loop(env);
 		}
 		if (stat(reg_command, &st) == 0)
 		{
@@ -35,10 +35,7 @@ void _shell_loop(char **env)
 				process(reg_command, st, ptr);
 		}
 		else
-		{
 			perror("./hsh");
-		}
-
 		_free(ptr);
 
 	} while (waitpid(my_pid, &wstatus, WUNTRACED));
